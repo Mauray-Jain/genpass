@@ -32,10 +32,8 @@ int main(void){
 		if(generated_str == NULL){
 			free(generated_prev); // If realloc failed original needs to be freed
 			generated_prev = NULL;
-			if(!set){
-				free(set);
-				set = NULL;
-			}
+			free(set);
+			set = NULL;
 			perror("Realloc failed");
 			exit(EXIT_FAILURE);
 		}
@@ -61,9 +59,7 @@ int main(void){
 
 		do {
 			clear();
-			if(genstr(generated_str, len, set) < 0){
-				perror("Some error\n");
-			}
+			genstr(generated_str, len, set);
 			printf("Generated string: %s\n", generated_str);
 			printf("What you wanna do next?\n");
 			printf("s: start again\n");

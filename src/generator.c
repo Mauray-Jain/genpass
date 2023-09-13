@@ -23,8 +23,6 @@ int genstr(char* str, long int len, char* set){
 	int len_of_set = (int) strlen(set);
 	for(int i = 0; i < len; i++){
 		x = genchar(set, len_of_set);
-		if(x == -1)
-			return -1;
 		*(str + i) = x;
 	}
 	*(str + len) = '\0';
