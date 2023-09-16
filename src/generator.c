@@ -1,6 +1,5 @@
 #include "genpass.h"
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 
 char genchar(char* set, int len){
@@ -19,11 +18,9 @@ void genset(char* set){
 }
 
 int genstr(char* str, long int len, char* set){
-	char x;
 	int len_of_set = (int) strlen(set);
 	for(int i = 0; i < len; i++){
-		x = genchar(set, len_of_set);
-		*(str + i) = x;
+		*(str + i) = genchar(set, len_of_set);
 	}
 	*(str + len) = '\0';
 	return 0;

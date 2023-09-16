@@ -1,13 +1,13 @@
 #include "genpass.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
 
 struct flag flags;
 int handle_constraint(char* constraint){
+	errno = 0;
 	int j = 0, k = 0;
-	sscanf(constraint, "%d", &j);
-	if(j <= 0)
+	j = (int) strtol(constraint, NULL, 10);
+	if(j <= 0 || errno == ERANGE)
 		return -1;
 	while(j > 0){
 		k = j % 10;
